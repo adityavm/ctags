@@ -1,0 +1,19 @@
+--exclude=.git
+--exclude=log
+--exclude=tmp
+--exclude=node_modules
+--exclude=dist
+--exclude=coverage
+--exclude=test.js
+--exclude=__tests__
+--exclude=*.json
+--exclude=*.scss
+--exclude=*.md
+
+--langdef=js
+--langmap=js:.js
+
+--regex-js=/export[ ]?(var|let|const)[ ]?([a-zA-Z0-9]+)[ ]?\=[ ]?\(/\2/f,function/ # https://regex101.com/r/AoshlA/1
+--regex-js=/([A-Z0-9_]{2,})[ ]?[:=]/\1/C,constant/
+--regex-js=/export[ ]?(const)[ ]?([A-Z0-9_]+)[ ]?[:=]/\2/C,constant/ # https://regex101.com/r/OfELbZ/1
+--regex-js=/export[ ]?(default)?[ ]?(class)[ ]?([A-Z][A-Za-z0-9]+)/\3/c,class/ # https://regex101.com/r/s1JDt1/1
